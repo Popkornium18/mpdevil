@@ -1,0 +1,16 @@
+import os
+import gi
+
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, GLib
+
+LOCALE_DIR = "@LOCALE_DIR@"
+RESOURCES_DIR = "@RESOURCES_DIR@"
+COVER_REGEX = r"^\.?(album|cover|folder|front).*\.(gif|jpeg|jpg|png)$"
+FALLBACK_COVER = (
+    Gtk.IconTheme.get_default()
+    .lookup_icon("media-optical", 128, Gtk.IconLookupFlags.FORCE_SVG)
+    .get_filename()
+)
+FALLBACK_SOCKET = os.path.join(GLib.get_user_runtime_dir(), "mpd/socket")
+FALLBACK_LIB = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_MUSIC)
