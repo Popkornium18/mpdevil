@@ -1,0 +1,1 @@
+from mpdevil.gui.main_window.settings_dialog.settings_dialog import SettingsDialog
